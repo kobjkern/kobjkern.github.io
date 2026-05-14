@@ -1,1 +1,247 @@
-coming soon...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KobjKern</title>
+    <link rel="icon" type="image/png" href="https://kobjkern.github.io/assets/logo-letter.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kobj: {
+                            accent: '#8c52ff',
+                            bg: '#050505',
+                            fg: '#d4d4d8',
+                            muted: '#52525b'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #050505;
+            color: #d4d4d8;
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(140, 82, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(140, 82, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 120vh;
+            background: radial-gradient(circle at 50% 30%, rgba(140, 82, 255, 0.12) 0%, rgba(5, 5, 5, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(5, 5, 5, 0.7);
+        }
+
+        .team-card {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .team-card:hover {
+            border-color: rgba(140, 82, 255, 0.4);
+            background: rgba(140, 82, 255, 0.03);
+            transform: translateY(-2px);
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #18181b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8c52ff; }
+
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(140, 82, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            pointer-events: none;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100%; }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-kobj-accent selection:text-white">
+
+    <div class="grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="scanline"></div>
+
+    <nav class="fixed top-0 w-full border-b border-white/5 py-2 px-6 z-50 nav-blur">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="https://kobjkern.github.io/assets/logo-letter.png" alt="KobjKern Logo" class="w-5 h-5">
+                <span class="text-xs font-bold tracking-tighter text-white">KobjKern</span>
+            </div>
+            
+            <div class="flex items-center gap-6 text-[9px] uppercase tracking-[0.2em] font-bold">
+                <a href="#about" class="text-kobj-muted hover:text-white transition-colors">About</a>
+                <a href="#team" class="text-kobj-muted hover:text-white transition-colors">Team</a>
+                <a href="https://github.com/kobjkern" target="_blank" class="text-kobj-muted hover:text-kobj-accent transition-colors">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="flex-grow flex flex-col items-center pt-40 pb-20 px-6 max-w-4xl mx-auto w-full">
+        
+        <section class="text-center w-full mb-32 relative">
+            <div class="inline-block mb-6 px-3 py-1 rounded-full border border-kobj-accent/20 bg-kobj-accent/5 text-[9px] tracking-widest text-kobj-accent font-bold animate-pulse-slow">
+                Work In Progress
+            </div>
+            <h1 class="text-5xl md:text-8xl font-bold text-white tracking-tighter mb-6">
+                The<br>
+                <span class="text-kobj-accent">K</span>Object <span class="text-kobj-accent">K</span>ernel
+            </h1>
+            
+            <div class="flex items-center justify-center gap-4 text-[10px] md:text-xs text-kobj-muted tracking-[0.4em] font-bold uppercase mb-12">
+                <span>X86_64</span>
+                <span class="text-kobj-accent animate-pulse">●</span>
+                <span>AARCH64</span>
+                <span class="text-kobj-accent animate-pulse">●</span>
+                <span>RISCV64</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://github.com/kobjkern" target="_blank" class="group inline-flex items-center gap-3 px-10 py-4 bg-white text-black text-[11px] font-bold uppercase tracking-[0.2em] rounded-full hover:bg-kobj-accent hover:text-white transition-all duration-500 transform hover:-translate-y-1 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(140,82,255,0.3)]">
+                    Github Org
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="w-full border-t border-white/5 pt-20 mb-32">
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/4">
+                    <div class="sticky top-24">
+                        <h2 class="text-kobj-muted font-bold uppercase tracking-[0.3em] text-[10px] flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-kobj-accent/40"></span>
+                            About
+                        </h2>
+                    </div>
+                </div>
+                <div class="md:w-3/4">
+                    <p class="text-kobj-fg leading-relaxed text-sm md:text-lg text-justify opacity-90">
+                        The KObject Kernel is a fun work-in-progress operating system kernel that we are working on for fun. KobjKern uses Limine as its bootloader, and supports multiple architectures.
+                    </p>
+                    <p class="mt-6 text-kobj-fg leading-relaxed text-sm md:text-lg text-justify opacity-90">
+                        The specific architectures that are supported are <span class="text-white border-b border-kobj-accent/40">x86_64</span>, <span class="text-white border-b border-kobj-accent/40">aarch64</span>, and <span class="text-white border-b border-kobj-accent/40">riscv64</span>. Currently we are working on getting KobjKern to compile and boot.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="w-full border-t border-white/5 pt-20 mb-10">
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/4">
+                    <div class="sticky top-24">
+                        <h2 class="text-kobj-muted font-bold uppercase tracking-[0.3em] text-[10px] flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-kobj-accent/40"></span>
+                            The Team
+                        </h2>
+                    </div>
+                </div>
+                <div class="md:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="team-card p-8 rounded-2xl flex flex-col gap-3 group">
+                        <div class="flex justify-between items-start">
+                            <span class="text-white font-bold text-xl group-hover:text-kobj-accent transition-colors">Nyxia</span>
+                        </div>
+                        <span class="text-kobj-muted text-[10px] uppercase tracking-[0.2em] font-bold">Founder</span>
+                    </div>
+                    <div class="team-card p-8 rounded-2xl flex flex-col gap-3 group">
+                        <div class="flex justify-between items-start">
+                            <span class="text-white font-bold text-xl group-hover:text-kobj-accent transition-colors">ANW</span>
+                        </div>
+                        <span class="text-kobj-muted text-[10px] uppercase tracking-[0.2em] font-bold">Co-Founder</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full border-t border-white/5 p-16 bg-[#030303] relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="flex justify-center items-center gap-3 mb-6">
+                <img src="https://kobjkern.github.io/assets/logo-letter.png" alt="Logo" class="w-4 h-4 opacity-40 grayscale hover:grayscale-0 transition-all cursor-crosshair">
+                <span class="text-[10px] font-bold tracking-[0.4em] text-white uppercase">KobjKern</span>
+            </div>
+            <p class="text-kobj-muted text-[10px] uppercase tracking-[0.25em] leading-loose max-w-xs mx-auto">
+                &copy; 2026 KobjKern by Nyxia and ANW.<br>All rights reserved.
+            </p>
+        </div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-kobj-accent/5 blur-[80px] pointer-events-none"></div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const grid = document.querySelector('.grid-bg');
+            grid.style.transform = `translateY(${scrolled * 0.1}px)`;
+        });
+    </script>
+</body>
+</html>
